@@ -19,9 +19,13 @@ An end‑to‑end delivery pipeline for a full‑stack ecommerce application.
 - **Day 1 (22/09/2025) — Analysis → Containerized Deployment**  
   - [Project Analysis](docs/project-analysis.md)  
   - [Deploy Project with Docker](docs/deploy-project-with-docker.md)  
-  - **Status:** ✅ Completed 22/09/2025  
+  - **Status:** ✅ Completed 22/09/2025
 
-*Summary: The first milestone completed with project analysis and containerized deployment.*
+- **Day 2 (23/09/2025) — Setup Gitlab Server And Install Gitlab Runner**  
+  - [Setup Gitlab - Gitlab Runner](docs/gitlab-and-runner-setup.md)  
+  - **Status:** (✅ Completed 23/09/2025 )     
+
+*Summary: .*
 
 ## 4) Architecture at a Glance
 - Developer pushes code → **Source code scan (CodeClimate, Snyk)**  
