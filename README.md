@@ -21,8 +21,9 @@ An end‑to‑end delivery pipeline for a full‑stack ecommerce application.
   - [Deploy Project with Docker](docs/deploy-project-with-docker.md)  
   - **Status:** ✅ Completed 22/09/2025
 
-- **Day 2 (23/09/2025) — Setup Gitlab Server And Install Gitlab Runner**  
+- **Day 2 (23/09/2025) — Setup Gitlab Server And Install Gitlab Runner - Setup Portus**  
   - [Setup Gitlab - Gitlab Runner](docs/gitlab-and-runner-setup.md)  
+  - [Setup Portus](docs/portus-setup.md) 
   - **Status:** (✅ Completed 23/09/2025 )     
 
 *Summary: .*
