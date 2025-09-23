@@ -8,8 +8,8 @@ Complete deployment guide for E-commerce Fullstack project using .NET Core 6 Bac
 
 Create two servers with the following configurations:
 
-- Database Server: 2 GB RAM, 20 GB SSD, hosting SQL Server and CloudBeaver, allowing ports 1433 and 8978.
-- Deploy Server: 4 GB RAM, 20 GB SSD, hosting application containers and reverse proxy for static IP.
+- Database Server: e2-small (2 vCPU, 1 core, 2 GB memory), 20 GB SSD, asia-east1 (Taiwan), hosting SQL Server and CloudBeaver, allowing ports 1433 and 8978.
+- Deploy Server: e2-medium (2 vCPU, 1 core, 4 GB memory), 20 GB SSD, asia-east1 (Taiwan), hosting application containers and reverse proxy for static IP.
 
 Ensure firewall rules and network security settings are properly configured for each server according to its role.
 
