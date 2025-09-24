@@ -1,0 +1,47 @@
+variables:
+  K6_PERFORMANCE_TEST_REPORT: "${CI_PROJECT_NAME}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}_performance_test"
+
+stages:
+  - performance_testing
+
+performance_testing:
+  stage: performance_testing
+  variables:
+    GIT_STRATEGY: clone
+  script:
+    - chmod -R 777 ./performance_testing_script/
+    
+    # 1. Smoke test
+    - docker run --rm -v $(pwd)/performance_testing_script:/performance_testing_script loadimpact/k6 run --summary-export=/performance_testing_script/smoke_summary.json /performance_testing_script/smoke-test.js
+    
+    # 2. Load test
+    - docker run --rm -v $(pwd)/performance_testing_script:/performance_testing_script loadimpact/k6 run --summary-export=/performance_testing_script/load_summary.json /performance_testing_script/load-test.js
+    
+    # 3. Stress test
+    - docker run --rm -v $(pwd)/performance_testing_script:/performance_testing_script loadimpact/k6 run --summary-export=/performance_testing_script/stress_summary.json /performance_testing_script/stress-test.js
+    
+    # 4. Soak test
+    - docker run --rm -v $(pwd)/performance_testing_script:/performance_testing_script loadimpact/k6 run --summary-export=/performance_testing_script/soak_summary.json /performance_testing_script/soak-test.js
+    
+    # Convert JSON summaries to CSV format
+    - cat ./performance_testing_script/smoke_summary.json | jq -r '["metric","avg","min","med","max","p(90)","p(95)"],(.metrics|to_entries[]|[.key,.value.avg,.value.min,.value.med,.value.max,.value["p(90)"],.value["p(95)"]])|@csv' > smoke_${K6_PERFORMANCE_TEST_REPORT}.csv
+    
+    - cat ./performance_testing_script/load_summary.json | jq -r '["metric","avg","min","med","max","p(90)","p(95)"],(.metrics|to_entries[]|[.key,.value.avg,.value.min,.value.med,.value.max,.value["p(90)"],.value["p(95)"]])|@csv' > load_${K6_PERFORMANCE_TEST_REPORT}.csv
+    
+    - cat ./performance_testing_script/stress_summary.json | jq -r '["metric","avg","min","med","max","p(90)","p(95)"],(.metrics|to_entries[]|[.key,.value.avg,.value.min,.value.med,.value.max,.value["p(90)"],.value["p(95)"]])|@csv' > stress_${K6_PERFORMANCE_TEST_REPORT}.csv
+    
+    - cat ./performance_testing_script/soak_summary.json | jq -r '["metric","avg","min","med","max","p(90)","p(95)"],(.metrics|to_entries[]|[.key,.value.avg,.value.min,.value.med,.value.max,.value["p(90)"],.value["p(95)"]])|@csv' > soak_${K6_PERFORMANCE_TEST_REPORT}.csv
+    
+  after_script:
+    - sudo chown -R gitlab-runner $(pwd)
+  tags:
+    - online-shop-runner-deploy-shell
+  only:
+    - tags
+  artifacts:
+    paths:
+      - smoke_${K6_PERFORMANCE_TEST_REPORT}.csv
+      - load_${K6_PERFORMANCE_TEST_REPORT}.csv
+      - stress_${K6_PERFORMANCE_TEST_REPORT}.csv
+      - soak_${K6_PERFORMANCE_TEST_REPORT}.csv
+    expire_in: 1 day

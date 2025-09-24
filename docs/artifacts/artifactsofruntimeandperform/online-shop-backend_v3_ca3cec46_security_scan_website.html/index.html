@@ -1,0 +1,3318 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        http://34.81.135.51:3000/ ::
+        Arachni Web Application Security Report
+    </title>
+
+    <!--
+        Design by Tasos "Zapotek" Laskos <tasos.laskos@arachni-scanner.com>
+        Copyright (c) Arachni 2011-2015.
+     -->
+
+    
+        <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+    
+        <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+    
+        <script type="text/javascript" src="js/lib/d3.min.js"></script>
+    
+        <script type="text/javascript" src="js/lib/c3.min.js"></script>
+    
+        <script type="text/javascript" src="js/helpers.js"></script>
+    
+        <script type="text/javascript" src="js/init.js"></script>
+    
+        <script type="text/javascript" src="js/charts.js"></script>
+    
+        <script type="text/javascript" src="js/configuration.js"></script>
+    
+
+    
+        <link href="css/lib/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    
+        <link href="css/lib/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    
+        <link href="css/lib/c3.css" type="text/css" rel="stylesheet" />
+    
+        <link href="css/main.css" type="text/css" rel="stylesheet" />
+    
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-default" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="http://www.arachni-scanner.com">
+            Arachni v1.4
+        </a>
+
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#!/summary">
+                        Summary
+
+                        
+                        <b class="fa fa-caret-down"></b>
+                        
+                    </a>
+
+                    
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#!/summary/charts">
+                                Charts
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#!/summary/issues">
+                                Issues
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </li>
+
+                
+                <li class="dropdown">
+                    <a href="#!/issues" class="dropdown-toggle">
+                        Issues
+
+                        <span class="badge">
+                            3
+                        </span>
+
+                        <b class="fa fa-caret-down"></b>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        
+                            <li class="dropdown">
+                                <a href="#!/issues/trusted">
+                                    Trusted
+
+                                    <span class="badge">
+                                        3
+                                    </span>
+
+                                    <b class="fa fa-caret-right"></b>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    
+                                        <li class="dropdown">
+                                            <a href="#!/issues/trusted/severity/low">
+                                                Low
+
+                                                <span class="badge">
+                                                    3
+                                                </span>
+
+                                                <b class="fa fa-caret-right"></b>
+                                            </a>
+
+                                            <ul class="dropdown-menu">
+                                                
+                                                    <li class="dropdown">
+                                                        <a href="#!/issues/trusted/severity/low/common_files">
+                                                            Common sensitive file
+
+                                                            <span class="badge">
+                                                                1
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li class="dropdown">
+                                                        <a href="#!/issues/trusted/severity/low/x_frame_options">
+                                                            Missing &#39;X-Frame-Options&#39; header
+
+                                                            <span class="badge">
+                                                                1
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li class="dropdown">
+                                                        <a href="#!/issues/trusted/severity/low/insecure_cors_policy">
+                                                            Insecure &#39;Access-Control-Allow-Origin&#39; header
+
+                                                            <span class="badge">
+                                                                1
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                </ul>
+                            </li>
+                        
+                    </ul>
+                </li>
+                
+
+                
+                <li class="dropdown">
+                    <a href="#!/plugins">
+                        Plugin results
+
+                        <span class="badge">1</span>
+                        <b class="fa fa-caret-down"></b>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        
+                            <li>
+                                <a href="#!/plugins/healthmap">
+                                    Health map
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </li>
+                
+
+                <li>
+                    <a href="#!/sitemap">
+                        Sitemap
+
+                        <span class="badge">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#!/configuration">Configuration</a>
+                </li>
+            </ul>
+        </div>
+
+        <p class="navbar-text navbar-right">
+            (Found a false positive?
+
+            <a class="navbar-link" href="https://github.com/Arachni/arachni/issues">
+                Please let us know.</a>)
+        </p>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>
+            http://34.81.135.51:3000/
+            <small>Generated on 2025-09-24 03:04:02 +0000</small>
+        </h1>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="summary">
+            <h2>Summary</h2>
+
+<div id="summary-tabs">
+    
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#!/summary/charts">Charts</a>
+            </li>
+            <li>
+                <a href="#!/summary/issues">
+                    Issues
+
+                    <span class="badge">
+                        3
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#!/summary/owasp_top_10">OWASP Top 10</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="summary-charts">
+                <div class="row">
+    <div id="bars">
+        <div class="col-md-12">
+            <h3>
+                Issues
+
+                <small>
+                    by type, trust, and severity
+                </small>
+            </h3>
+
+            <p class="text-muted">
+                (Click on the bars or line points for details on the relevant issues.)
+            </p>
+
+            <div id='chart-issues'>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="pies">
+        <div class="col-md-4">
+            <h3>
+                Severities
+
+                <small>of issues based on possible impact</small>
+            </h3>
+
+            <p class="text-muted">
+                (Click to see relevant <a href="#!/summary/issues/trusted">Trusted</a> issues.)
+            </p>
+
+            <div id="chart-severities">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3>
+                Elements
+                <small>with issues, by type</small>
+            </h3>
+
+            <p>&nbsp;</p>
+            <div id="chart-elements">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3>
+                Trust
+                <small>
+                    evaluation
+                    (<a href="#!/summary/issues/trusted">Trusted</a> vs.
+                    <a href="#!/summary/issues/untrusted">Untrusted</a>) of
+                    issues
+                </small>
+            </h3>
+
+            <p class="text-muted">(Click to see relevant issues.)</p>
+
+            <div id="chart-trust">
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+
+            <div class="tab-pane" id="summary-issues">
+                
+    
+
+    <h3>
+        <a
+            id="summary-issues-trusted"
+            href="#!/summary/issues/trusted"
+        >
+
+            Trusted
+
+            <span class="badge">
+                3
+            </span>
+        </a>
+    </h3>
+
+    
+
+        <h4>
+            <a
+                id="summary-issues-trusted-severity-low"
+                href="#!/summary/issues/trusted/severity/low"
+            >
+                Low severity
+
+                <span class="badge">
+                    3
+                </span>
+            </a>
+        </h4>
+
+        <div class="row">
+            
+    <div class="col-md-6">
+        <div class="issue-summary">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>
+                        <a
+                        id="summary-issues-trusted-severity-low-common_files"
+                        href="#!/summary/issues/trusted/severity/low/common_files"
+                        >
+                            Common sensitive file
+
+                            <span class="badge">
+                                1
+                            </span>
+                        </a>
+                    </strong>
+                </div>
+
+                <div class="panel-body">
+                    
+                        <div class="markdown">
+                            
+<p>Web applications are often made up of multiple files and directories.</p>
+
+<p>It is possible that over time some files may become unreferenced (unused)
+by the web application and forgotten about by the administrator/developer.
+Because web applications are built using common frameworks, they contain common
+files that can be discovered (independent of server).</p>
+
+<p>During the initial recon stages of an attack, cyber-criminals will attempt to
+locate unreferenced files in the hope that the file will assist in further
+compromise of the web application.
+To achieve this they will make thousands of requests using word lists containing
+common filenames.
+The response headers from the server will then indicate if the file exists.</p>
+
+<p>Arachni also contains a list of common file names which it will attempt to access.</p>
+
+                        </div>
+                    
+
+                    <table class="table table-condensed">
+                        <tr>
+                            <th></th>
+                            <th>
+                                Vector type
+                            </th>
+
+                            
+
+                            
+                                <th>
+                                    HTTP method
+                                </th>
+                            
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+
+                        
+                            <tr>
+                                <td>
+                                    <a class="btn btn-xs btn-info"
+                                       href="#!/issues/trusted/severity/low/common_files/2252840835"
+                                       title="Inspect issue"
+                                    >
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <code>server</code>
+                                </td>
+
+                                
+
+                                
+                                    <td>
+                                        <code>GET</code>
+                                    </td>
+                                
+
+                                <td>
+                                    <a href="http://34.81.135.51:3000/robots.txt">
+                                        http://34.81.135.51:3000/robots.txt
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="issue-summary">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>
+                        <a
+                        id="summary-issues-trusted-severity-low-x_frame_options"
+                        href="#!/summary/issues/trusted/severity/low/x_frame_options"
+                        >
+                            Missing 'X-Frame-Options' header
+
+                            <span class="badge">
+                                1
+                            </span>
+                        </a>
+                    </strong>
+                </div>
+
+                <div class="panel-body">
+                    
+                        <div class="markdown">
+                            
+<p>Clickjacking (User Interface redress attack, UI redress attack, UI redressing)
+is a malicious technique of tricking a Web user into clicking on something different
+from what the user perceives they are clicking on, thus potentially revealing
+confidential information or taking control of their computer while clicking on
+seemingly innocuous web pages.</p>
+
+<p>The server didn’t return an <code>X-Frame-Options</code> header which means that this website
+could be at risk of a clickjacking attack.</p>
+
+<p>The <code>X-Frame-Options</code> HTTP response header can be used to indicate whether or not
+a browser should be allowed to render a page inside a frame or iframe. Sites can
+use this to avoid clickjacking attacks, by ensuring that their content is not
+embedded into other sites.</p>
+
+                        </div>
+                    
+
+                    <table class="table table-condensed">
+                        <tr>
+                            <th></th>
+                            <th>
+                                Vector type
+                            </th>
+
+                            
+
+                            
+                                <th>
+                                    HTTP method
+                                </th>
+                            
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+
+                        
+                            <tr>
+                                <td>
+                                    <a class="btn btn-xs btn-info"
+                                       href="#!/issues/trusted/severity/low/x_frame_options/2449710244"
+                                       title="Inspect issue"
+                                    >
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <code>server</code>
+                                </td>
+
+                                
+
+                                
+                                    <td>
+                                        <code>GET</code>
+                                    </td>
+                                
+
+                                <td>
+                                    <a href="http://34.81.135.51:3000/">
+                                        http://34.81.135.51:3000/
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="issue-summary">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>
+                        <a
+                        id="summary-issues-trusted-severity-low-insecure_cors_policy"
+                        href="#!/summary/issues/trusted/severity/low/insecure_cors_policy"
+                        >
+                            Insecure 'Access-Control-Allow-Origin' header
+
+                            <span class="badge">
+                                1
+                            </span>
+                        </a>
+                    </strong>
+                </div>
+
+                <div class="panel-body">
+                    
+                        <div class="markdown">
+                            
+<p><em>Cross Origin Resource Sharing (CORS)</em> is an HTML5 technology which gives modern
+web browsers the ability to bypass restrictions implemented by the <em>Same Origin Policy</em>.
+The <em>Same Origin Policy</em> requires that both the JavaScript and the page are loaded
+from the same domain in order to allow JavaScript to interact with the page. This
+in turn prevents malicious JavaScript being executed when loaded from external domains.</p>
+
+<p>The CORS policy allows the application to specify exceptions to the protections
+implemented by the browser, and allows the developer to whitelist domains for
+which external JavaScript is permitted to execute and interact with the page.</p>
+
+<p>A weak CORS policy is one which whitelists all domains using a wildcard (<code>*</code>),
+which will allow any externally loaded JavaScript resource to interact with the
+affected page. This can severely increase the risk of attacks such as Cross Site Scripting etc.</p>
+
+<p>Arachni detected that the CORS policy being set by the server was weak, and used
+a wildcard value. This is evident by the <code>Access-Control-Allow-Origin</code> header being set to <code>*</code>.</p>
+
+                        </div>
+                    
+
+                    <table class="table table-condensed">
+                        <tr>
+                            <th></th>
+                            <th>
+                                Vector type
+                            </th>
+
+                            
+
+                            
+                                <th>
+                                    HTTP method
+                                </th>
+                            
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+
+                        
+                            <tr>
+                                <td>
+                                    <a class="btn btn-xs btn-info"
+                                       href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803"
+                                       title="Inspect issue"
+                                    >
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <code>server</code>
+                                </td>
+
+                                
+
+                                
+                                    <td>
+                                        <code>GET</code>
+                                    </td>
+                                
+
+                                <td>
+                                    <a href="http://34.81.135.51:3000/">
+                                        http://34.81.135.51:3000/
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        </div>
+
+        <hr/>
+    
+
+
+            </div>
+
+            <div class="tab-pane" id="summary-owasp_top_10">
+                <p>
+    (<a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">About the OWASP Top 10 list</a>)
+</p>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                <a id="summary-owasp_top_10-A5"
+                    href="#!/summary/owasp_top_10/A5">
+                    A5-Security Misconfiguration
+
+                    <span class="badge">
+                        1
+                    </span>
+                </a>
+            </h3>
+
+            <blockquote>
+                
+Good security requires having a secure configuration defined and deployed for
+the application, frameworks, application server, web server, database server,
+and platform. Secure settings should be defined, implemented, and maintained,
+as defaults are often insecure. Additionally, software should be kept up to date.
+
+
+                <small><a href="https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration">OWASP</a></small>
+            </blockquote>
+        </div>
+
+        
+            
+    <div class="col-md-6">
+        <div class="issue-summary">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>
+                        <a
+                        id="summary-issues--severity-low-insecure_cors_policy"
+                        href="#!/summary/issues//severity/low/insecure_cors_policy"
+                        >
+                            Insecure 'Access-Control-Allow-Origin' header
+
+                            <span class="badge">
+                                1
+                            </span>
+                        </a>
+                    </strong>
+                </div>
+
+                <div class="panel-body">
+                    
+                        <div class="markdown">
+                            
+<p><em>Cross Origin Resource Sharing (CORS)</em> is an HTML5 technology which gives modern
+web browsers the ability to bypass restrictions implemented by the <em>Same Origin Policy</em>.
+The <em>Same Origin Policy</em> requires that both the JavaScript and the page are loaded
+from the same domain in order to allow JavaScript to interact with the page. This
+in turn prevents malicious JavaScript being executed when loaded from external domains.</p>
+
+<p>The CORS policy allows the application to specify exceptions to the protections
+implemented by the browser, and allows the developer to whitelist domains for
+which external JavaScript is permitted to execute and interact with the page.</p>
+
+<p>A weak CORS policy is one which whitelists all domains using a wildcard (<code>*</code>),
+which will allow any externally loaded JavaScript resource to interact with the
+affected page. This can severely increase the risk of attacks such as Cross Site Scripting etc.</p>
+
+<p>Arachni detected that the CORS policy being set by the server was weak, and used
+a wildcard value. This is evident by the <code>Access-Control-Allow-Origin</code> header being set to <code>*</code>.</p>
+
+                        </div>
+                    
+
+                    <table class="table table-condensed">
+                        <tr>
+                            <th></th>
+                            <th>
+                                Vector type
+                            </th>
+
+                            
+
+                            
+                                <th>
+                                    HTTP method
+                                </th>
+                            
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+
+                        
+                            <tr>
+                                <td>
+                                    <a class="btn btn-xs btn-info"
+                                       href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803"
+                                       title="Inspect issue"
+                                    >
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <code>server</code>
+                                </td>
+
+                                
+
+                                
+                                    <td>
+                                        <code>GET</code>
+                                    </td>
+                                
+
+                                <td>
+                                    <a href="http://34.81.135.51:3000/">
+                                        http://34.81.135.51:3000/
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        
+    </div>
+
+
+            </div>
+        </div>
+    
+</div>
+
+        </div>
+
+        <div class="tab-pane" id="configuration">
+            <h2>
+    Configuration
+
+    <a id="configuration-download" class="btn btn-sm btn-primary">
+        Download
+    </a>
+</h2>
+
+<dl class="dl-horizontal">
+    <dt>Version</dt>
+    <dd>1.4</dd>
+    <dt>Audit started on</dt>
+    <dd>2025-09-24 03:03:20 +0000</dd>
+    <dt>Audit finished on</dt>
+    <dd>2025-09-24 03:04:00 +0000</dd>
+    <dt>Runtime</dt>
+    <dd>00:00:40</dd>
+</dl>
+
+<h3>
+    <a
+    id="configuration-general"
+    href="#!/configuration/general"
+    >
+        General
+    </a>
+</h3>
+
+<dl class="dl-horizontal">
+    <dt>URL</dt>
+    <dd>
+        <a href="http://34.81.135.51:3000/">
+            http://34.81.135.51:3000/
+        </a>
+    </dd>
+
+    
+        <dt>Checks</dt>
+        <dd>
+            <code>allowed_methods</code>, <code>backdoors</code>, <code>backup_directories</code>, <code>backup_files</code>, <code>captcha</code>, <code>code_injection</code>, <code>code_injection_php_input_wrapper</code>, <code>code_injection_timing</code>, <code>common_admin_interfaces</code>, <code>common_directories</code>, <code>common_files</code>, <code>cookie_set_for_parent_domain</code>, <code>credit_card</code>, <code>csrf</code>, <code>cvs_svn_users</code>, <code>directory_listing</code>, <code>emails</code>, <code>file_inclusion</code>, <code>form_upload</code>, <code>hsts</code>, <code>htaccess_limit</code>, <code>html_objects</code>, <code>http_only_cookies</code>, <code>http_put</code>, <code>insecure_client_access_policy</code>, <code>insecure_cookies</code>, <code>insecure_cors_policy</code>, <code>insecure_cross_domain_policy_access</code>, <code>insecure_cross_domain_policy_headers</code>, <code>interesting_responses</code>, <code>ldap_injection</code>, <code>localstart_asp</code>, <code>mixed_resource</code>, <code>no_sql_injection</code>, <code>no_sql_injection_differential</code>, <code>origin_spoof_access_restriction_bypass</code>, <code>os_cmd_injection</code>, <code>os_cmd_injection_timing</code>, <code>password_autocomplete</code>, <code>path_traversal</code>, <code>private_ip</code>, <code>response_splitting</code>, <code>rfi</code>, <code>session_fixation</code>, <code>source_code_disclosure</code>, <code>sql_injection</code>, <code>sql_injection_differential</code>, <code>sql_injection_timing</code>, <code>ssn</code>, <code>trainer</code>, <code>unencrypted_password_forms</code>, <code>unvalidated_redirect</code>, <code>unvalidated_redirect_dom</code>, <code>webdav</code>, <code>x_frame_options</code>, <code>xpath_injection</code>, <code>xss</code>, <code>xss_dom</code>, <code>xss_dom_script_context</code>, <code>xss_event</code>, <code>xss_path</code>, <code>xss_script_context</code>, <code>xss_tag</code>, <code>xst</code>, <code>xxe</code>
+        </dd>
+    
+
+    
+
+    
+</dl>
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-input"
+            href="#!/configuration/input"
+        >
+            Input
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;values&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;default_values&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;name&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_name&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;user&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_user&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;usr&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_user&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;pass&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;5543!%arachni_secret&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;txt&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_text&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;num&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;132&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;amount&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;100&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;mail&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni@email.gr&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;account&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;12&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;id&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;1&quot;</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;without_defaults&quot;</code>
+            </th>
+            <td>
+                
+                    <code>false</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;force&quot;</code>
+            </th>
+            <td>
+                
+                    <code>false</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-datastore"
+            href="#!/configuration/datastore"
+        >
+            Datastore
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;report_path&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;/tmp/online-shop-backend_v3_ca3cec46_security_scan_website.afr&quot;</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-browser_cluster"
+            href="#!/configuration/browser_cluster"
+        >
+            Browser cluster
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;local_storage&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;wait_for_elements&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;pool_size&quot;</code>
+            </th>
+            <td>
+                
+                    <code>6</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;job_timeout&quot;</code>
+            </th>
+            <td>
+                
+                    <code>25</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;worker_time_to_live&quot;</code>
+            </th>
+            <td>
+                
+                    <code>100</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;ignore_images&quot;</code>
+            </th>
+            <td>
+                
+                    <code>false</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;screen_width&quot;</code>
+            </th>
+            <td>
+                
+                    <code>1600</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;screen_height&quot;</code>
+            </th>
+            <td>
+                
+                    <code>1200</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-http"
+            href="#!/configuration/http"
+        >
+            Http
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;user_agent&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;Arachni/v1.4&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_timeout&quot;</code>
+            </th>
+            <td>
+                
+                    <code>10000</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_redirect_limit&quot;</code>
+            </th>
+            <td>
+                
+                    <code>5</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_concurrency&quot;</code>
+            </th>
+            <td>
+                
+                    <code>20</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_queue_size&quot;</code>
+            </th>
+            <td>
+                
+                    <code>100</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_headers&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;response_max_size&quot;</code>
+            </th>
+            <td>
+                
+                    <code>500000</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;cookies&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-audit"
+            href="#!/configuration/audit"
+        >
+            Audit
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;parameter_values&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_vector_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;include_vector_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;link_templates&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;links&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;forms&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;cookies&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;ui_inputs&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;ui_forms&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;jsons&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;xmls&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-scope"
+            href="#!/configuration/scope"
+        >
+            Scope
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;redundant_path_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;dom_depth_limit&quot;</code>
+            </th>
+            <td>
+                
+                    <code>5</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_file_extensions&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_path_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_content_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;include_path_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;restrict_paths&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;extend_paths&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;url_rewrites&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;include_subdomains&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+
+        </div>
+
+        
+        <div class="tab-pane" id="issues">
+            <h2>Issues</h2>
+
+<ul class="nav nav-tabs">
+    
+    <li
+        class='active'
+    >
+        <a class="tab-trusted" href="#!/issues/trusted" >
+            Trusted
+
+            <span class="badge">
+                3
+            </span>
+        </a>
+    </li>
+    
+</ul>
+
+<div class="tab-content">
+    
+    <div class="tab-pane active" id="issues-trusted">
+        <p class="well">
+            At the time these issues were logged there were no abnormal
+            interferences or anomalous server behavior.<br/>
+            These issues are considered trusted and accurate.
+        </p>
+
+        <div id="issues-trusted-severities-tabs">
+    <ul class="nav nav-tabs">
+
+        
+            <li class="active" >
+                <a class="tab-severity-low"
+                   href="#!/issues/trusted/severity/low">
+                    Low
+
+                    <span class="badge">
+                        3
+                    </span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+<div class="tab-content">
+    
+        <div class="tab-pane active"
+             id="issues-trusted-severity-low">
+
+            
+                
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3>
+                            <a id="issues-trusted-severity-low-common_files"
+                               href="#!/issues/trusted/severity/low/common_files"
+                            >
+                                Common sensitive file
+                            </a>
+
+                            <span class="badge">
+                                1
+                            </span>
+
+                            <small>
+                                <span class="label label-default">
+                                    common_files
+                                </span>
+                            </small>
+                        </h3>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="issue-description markdown">
+                                    
+<p>Web applications are often made up of multiple files and directories.</p>
+
+<p>It is possible that over time some files may become unreferenced (unused)
+by the web application and forgotten about by the administrator/developer.
+Because web applications are built using common frameworks, they contain common
+files that can be discovered (independent of server).</p>
+
+<p>During the initial recon stages of an attack, cyber-criminals will attempt to
+locate unreferenced files in the hope that the file will assist in further
+compromise of the web application.
+To achieve this they will make thousands of requests using word lists containing
+common filenames.
+The response headers from the server will then indicate if the file exists.</p>
+
+<p>Arachni also contains a list of common file names which it will attempt to access.</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row">
+
+                            
+
+                            
+                            <div class="col-md-12">
+                                <h4>
+                                    <a id="issues-trusted-severity-low-common_files-remedy_guidance"
+                                       href="#!/issues/trusted/severity/low/common_files/remedy_guidance"
+                                    >
+                                        Remediation guidance
+                                    </a>
+                                </h4>
+
+                                <div class="issue-remedy_guidance markdown">
+                                    
+<p>If files are unreferenced then they should be removed from the web root
+and/or the application directory.</p>
+
+<p>Preventing access without authentication may also be an option and can stop a
+client from being able to view the contents of a file, however it is still likely
+that the directory structure will be able to be discovered.</p>
+
+<p>Using obscure file names is implementing security through obscurity and is
+not a recommended option.</p>
+
+                                </div>
+                            </div>
+                            
+
+                            
+                        </div>
+                        
+                    </div>
+
+                    
+                    <div class="col-md-2">
+                        <h4>
+                            <a id="issues-trusted-severity-low-common_files-references"
+                               href="#!/issues/trusted/severity/low/common_files/references"
+                            >
+                                References
+                            </a>
+                        </h4>
+
+                        <hr/>
+
+                        <ul class="list-unstyled">
+                            
+
+                            
+                                <li>
+                                    <a href="http://httpd.apache.org/docs/2.0/mod/mod_access.html"> Apache.org</a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                
+                    <div id="issues-trusted-severity-low-common_files-2252840835">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#!/issues/trusted/severity/low/common_files/2252840835">
+                            In <code>server</code>
+
+                            
+
+                            
+                                using
+                                <code>GET</code>
+                            
+                        </a>
+
+                        at
+
+                        <a href="http://34.81.135.51:3000/robots.txt">
+                            http://34.81.135.51:3000/robots.txt
+                        </a>
+
+                        pointing to
+                        <a href="http://34.81.135.51:3000/robots.txt">
+                            http://34.81.135.51:3000/robots.txt
+                        </a>.
+                    </h4>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+
+
+
+
+
+
+
+<table class="table table-condensed table-fixed">
+    <thead>
+    <tr>
+        
+
+        
+
+        
+            <th>
+                Proof
+
+                <a href="#" rel="tooltip"
+                   title="This string was used to verify the existence of the issue.">
+                    <i class="fa fa-info"></i>
+                </a>
+            </th>
+        
+
+    </tr>
+    </thead>
+    <tr>
+
+        
+
+        
+
+        
+            <td class="wrap">
+                <pre class='code-container'>HTTP/1.1 200 OK</pre>
+            </td>
+        
+    </tr>
+</table>
+
+
+                        </div>
+                    </div>
+
+                    <div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/common_files/2252840835/vector">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-common_files-2252840835-vector">
+                    Vector information
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-common_files-2252840835-vector" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+<table class="table">
+    <tr>
+        <th>Type</th>
+        <th>In</th>
+        <th>Action</th>
+
+        
+    </tr>
+    <tr>
+        <td><code>server</code></td>
+        <td>
+            <a href="http://34.81.135.51:3000/robots.txt">
+                http://34.81.135.51:3000/robots.txt
+            </a>
+        </td>
+        <td>
+            <a href="http://34.81.135.51:3000/robots.txt">
+                http://34.81.135.51:3000/robots.txt
+            </a>
+        </td>
+
+        
+    </tr>
+</table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/common_files/2252840835/affected_page">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-common_files-2252840835-affected_page">
+                    Affected page:
+
+                    <code>http://34.81.135.51:3000/robots.txt</code>
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-common_files-2252840835-affected_page" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-common_files-2252840835-affected_page-http_request"
+            href="#!/issues/trusted/severity/low/common_files/2252840835/affected_page/http_request">
+                HTTP request
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP request used to retrieve the page.
+        </p>
+
+        <pre class="code-container">GET /robots.txt HTTP/1.1
+Host: 34.81.135.51:3000
+Accept-Encoding: gzip, deflate
+User-Agent: Arachni/v1.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.8,he;q=0.6
+
+</pre>
+    </div>
+
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-common_files-2252840835-affected_page-http_response"
+            href="#!/issues/trusted/severity/low/common_files/2252840835/affected_page/http_response">
+                HTTP response
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP response used as the page basis.
+
+            (Binary bodies will not be displayed.)
+        </p>
+
+        
+            <pre class="code-container"><span class="issue-proof-highlight">HTTP/1.1 200 OK</span>
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Tue, 23 Sep 2025 17:39:10 GMT
+ETag: W/&quot;43-19977a86a30&quot;
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 67
+Vary: Accept-Encoding
+Date: Wed, 24 Sep 2025 03:03:53 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+</pre>
+        
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/common_files/2252840835/referring_page">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-common_files-2252840835-referring_page">
+                    Referring page:
+
+                    <code>http://34.81.135.51:3000/</code>
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-common_files-2252840835-referring_page" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-common_files-2252840835-referring_page-http_request"
+            href="#!/issues/trusted/severity/low/common_files/2252840835/referring_page/http_request">
+                HTTP request
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP request used to retrieve the page.
+        </p>
+
+        <pre class="code-container">GET / HTTP/1.1
+Host: 34.81.135.51:3000
+Accept-Encoding: gzip, deflate
+User-Agent: Arachni/v1.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.8,he;q=0.6
+
+</pre>
+    </div>
+
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-common_files-2252840835-referring_page-http_response"
+            href="#!/issues/trusted/severity/low/common_files/2252840835/referring_page/http_response">
+                HTTP response
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP response used as the page basis.
+
+            (Binary bodies will not be displayed.)
+        </p>
+
+        
+            <pre class="code-container"><span class="issue-proof-highlight">HTTP/1.1 200 OK</span>
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Content-Type: text/html; charset=utf-8
+Accept-Ranges: bytes
+ETag: W/&quot;705-jMYbT9KhAqKrqVflvGAjDfv/cgs&quot;
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Wed, 24 Sep 2025 03:03:23 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;script src=&quot;https://www.paypal.com/sdk/js?client-id=sb&amp;;currency=DKK&quot;&gt;&lt;/script&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt;
+    &lt;meta
+      name=&quot;description&quot;
+      content=&quot;Web site created using create-react-app&quot;
+    /&gt;
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/logo192.png&quot; /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user&#39;s mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;
+    &lt;!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike &quot;/favicon.ico&quot; or &quot;favicon.ico&quot;, &quot;/favicon.ico&quot; will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+    &lt;title&gt;Shoes shop&lt;/title&gt;
+  &lt;script defer src=&quot;/static/js/bundle.js&quot;&gt;&lt;/script&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+    &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+                
+            
+                
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3>
+                            <a id="issues-trusted-severity-low-x_frame_options"
+                               href="#!/issues/trusted/severity/low/x_frame_options"
+                            >
+                                Missing 'X-Frame-Options' header
+                            </a>
+
+                            <span class="badge">
+                                1
+                            </span>
+
+                            <small>
+                                <span class="label label-default">
+                                    x_frame_options
+                                </span>
+                            </small>
+                        </h3>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="issue-description markdown">
+                                    
+<p>Clickjacking (User Interface redress attack, UI redress attack, UI redressing)
+is a malicious technique of tricking a Web user into clicking on something different
+from what the user perceives they are clicking on, thus potentially revealing
+confidential information or taking control of their computer while clicking on
+seemingly innocuous web pages.</p>
+
+<p>The server didn’t return an <code>X-Frame-Options</code> header which means that this website
+could be at risk of a clickjacking attack.</p>
+
+<p>The <code>X-Frame-Options</code> HTTP response header can be used to indicate whether or not
+a browser should be allowed to render a page inside a frame or iframe. Sites can
+use this to avoid clickjacking attacks, by ensuring that their content is not
+embedded into other sites.</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row">
+
+                            
+
+                            
+                            <div class="col-md-12">
+                                <h4>
+                                    <a id="issues-trusted-severity-low-x_frame_options-remedy_guidance"
+                                       href="#!/issues/trusted/severity/low/x_frame_options/remedy_guidance"
+                                    >
+                                        Remediation guidance
+                                    </a>
+                                </h4>
+
+                                <div class="issue-remedy_guidance markdown">
+                                    
+<p>Configure your web server to include an <code>X-Frame-Options</code> header.</p>
+
+                                </div>
+                            </div>
+                            
+
+                            
+                        </div>
+                        
+                    </div>
+
+                    
+                    <div class="col-md-2">
+                        <h4>
+                            <a id="issues-trusted-severity-low-x_frame_options-references"
+                               href="#!/issues/trusted/severity/low/x_frame_options/references"
+                            >
+                                References
+                            </a>
+                        </h4>
+
+                        <hr/>
+
+                        <ul class="list-unstyled">
+                            
+                                <li>
+                                    <a href="http://cwe.mitre.org/data/definitions/693.html">
+                                        CWE-693
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr/>
+                                </li>
+                            
+
+                            
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options"> MDN</a>
+                                </li>
+                            
+                                <li>
+                                    <a href="http://tools.ietf.org/html/rfc7034"> RFC</a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://www.owasp.org/index.php/Clickjacking"> OWASP</a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                
+                    <div id="issues-trusted-severity-low-x_frame_options-2449710244">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#!/issues/trusted/severity/low/x_frame_options/2449710244">
+                            In <code>server</code>
+
+                            
+
+                            
+                                using
+                                <code>GET</code>
+                            
+                        </a>
+
+                        at
+
+                        <a href="http://34.81.135.51:3000/">
+                            http://34.81.135.51:3000/
+                        </a>
+
+                        pointing to
+                        <a href="http://34.81.135.51:3000/">
+                            http://34.81.135.51:3000/
+                        </a>.
+                    </h4>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+
+
+
+
+
+
+
+<table class="table table-condensed table-fixed">
+    <thead>
+    <tr>
+        
+
+        
+
+        
+            <th>
+                Proof
+
+                <a href="#" rel="tooltip"
+                   title="This string was used to verify the existence of the issue.">
+                    <i class="fa fa-info"></i>
+                </a>
+            </th>
+        
+
+    </tr>
+    </thead>
+    <tr>
+
+        
+
+        
+
+        
+            <td class="wrap">
+                <pre class='code-container'>HTTP/1.1 200 OK</pre>
+            </td>
+        
+    </tr>
+</table>
+
+
+                        </div>
+                    </div>
+
+                    <div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/x_frame_options/2449710244/vector">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-x_frame_options-2449710244-vector">
+                    Vector information
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-x_frame_options-2449710244-vector" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+<table class="table">
+    <tr>
+        <th>Type</th>
+        <th>In</th>
+        <th>Action</th>
+
+        
+    </tr>
+    <tr>
+        <td><code>server</code></td>
+        <td>
+            <a href="http://34.81.135.51:3000/">
+                http://34.81.135.51:3000/
+            </a>
+        </td>
+        <td>
+            <a href="http://34.81.135.51:3000/">
+                http://34.81.135.51:3000/
+            </a>
+        </td>
+
+        
+    </tr>
+</table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/x_frame_options/2449710244/affected_page">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-x_frame_options-2449710244-affected_page">
+                    Affected page:
+
+                    <code>http://34.81.135.51:3000/</code>
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-x_frame_options-2449710244-affected_page" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-x_frame_options-2449710244-affected_page-http_request"
+            href="#!/issues/trusted/severity/low/x_frame_options/2449710244/affected_page/http_request">
+                HTTP request
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP request used to retrieve the page.
+        </p>
+
+        <pre class="code-container">GET / HTTP/1.1
+Host: 34.81.135.51:3000
+Accept-Encoding: gzip, deflate
+User-Agent: Arachni/v1.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.8,he;q=0.6
+
+</pre>
+    </div>
+
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-x_frame_options-2449710244-affected_page-http_response"
+            href="#!/issues/trusted/severity/low/x_frame_options/2449710244/affected_page/http_response">
+                HTTP response
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP response used as the page basis.
+
+            (Binary bodies will not be displayed.)
+        </p>
+
+        
+            <pre class="code-container"><span class="issue-proof-highlight">HTTP/1.1 200 OK</span>
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Content-Type: text/html; charset=utf-8
+Accept-Ranges: bytes
+ETag: W/&quot;705-jMYbT9KhAqKrqVflvGAjDfv/cgs&quot;
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Wed, 24 Sep 2025 03:03:23 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;script src=&quot;https://www.paypal.com/sdk/js?client-id=sb&amp;;currency=DKK&quot;&gt;&lt;/script&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt;
+    &lt;meta
+      name=&quot;description&quot;
+      content=&quot;Web site created using create-react-app&quot;
+    /&gt;
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/logo192.png&quot; /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user&#39;s mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;
+    &lt;!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike &quot;/favicon.ico&quot; or &quot;favicon.ico&quot;, &quot;/favicon.ico&quot; will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+    &lt;title&gt;Shoes shop&lt;/title&gt;
+  &lt;script defer src=&quot;/static/js/bundle.js&quot;&gt;&lt;/script&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+    &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/x_frame_options/2449710244/referring_page">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-x_frame_options-2449710244-referring_page">
+                    Referring page:
+
+                    <code>http://34.81.135.51:3000/</code>
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-x_frame_options-2449710244-referring_page" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-x_frame_options-2449710244-referring_page-http_request"
+            href="#!/issues/trusted/severity/low/x_frame_options/2449710244/referring_page/http_request">
+                HTTP request
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP request used to retrieve the page.
+        </p>
+
+        <pre class="code-container">GET / HTTP/1.1
+Host: 34.81.135.51:3000
+Accept-Encoding: gzip, deflate
+User-Agent: Arachni/v1.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.8,he;q=0.6
+
+</pre>
+    </div>
+
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-x_frame_options-2449710244-referring_page-http_response"
+            href="#!/issues/trusted/severity/low/x_frame_options/2449710244/referring_page/http_response">
+                HTTP response
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP response used as the page basis.
+
+            (Binary bodies will not be displayed.)
+        </p>
+
+        
+            <pre class="code-container"><span class="issue-proof-highlight">HTTP/1.1 200 OK</span>
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Content-Type: text/html; charset=utf-8
+Accept-Ranges: bytes
+ETag: W/&quot;705-jMYbT9KhAqKrqVflvGAjDfv/cgs&quot;
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Wed, 24 Sep 2025 03:03:23 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;script src=&quot;https://www.paypal.com/sdk/js?client-id=sb&amp;;currency=DKK&quot;&gt;&lt;/script&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt;
+    &lt;meta
+      name=&quot;description&quot;
+      content=&quot;Web site created using create-react-app&quot;
+    /&gt;
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/logo192.png&quot; /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user&#39;s mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;
+    &lt;!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike &quot;/favicon.ico&quot; or &quot;favicon.ico&quot;, &quot;/favicon.ico&quot; will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+    &lt;title&gt;Shoes shop&lt;/title&gt;
+  &lt;script defer src=&quot;/static/js/bundle.js&quot;&gt;&lt;/script&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+    &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+                
+            
+                
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3>
+                            <a id="issues-trusted-severity-low-insecure_cors_policy"
+                               href="#!/issues/trusted/severity/low/insecure_cors_policy"
+                            >
+                                Insecure 'Access-Control-Allow-Origin' header
+                            </a>
+
+                            <span class="badge">
+                                1
+                            </span>
+
+                            <small>
+                                <span class="label label-default">
+                                    insecure_cors_policy
+                                </span>
+                            </small>
+                        </h3>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="issue-description markdown">
+                                    
+<p><em>Cross Origin Resource Sharing (CORS)</em> is an HTML5 technology which gives modern
+web browsers the ability to bypass restrictions implemented by the <em>Same Origin Policy</em>.
+The <em>Same Origin Policy</em> requires that both the JavaScript and the page are loaded
+from the same domain in order to allow JavaScript to interact with the page. This
+in turn prevents malicious JavaScript being executed when loaded from external domains.</p>
+
+<p>The CORS policy allows the application to specify exceptions to the protections
+implemented by the browser, and allows the developer to whitelist domains for
+which external JavaScript is permitted to execute and interact with the page.</p>
+
+<p>A weak CORS policy is one which whitelists all domains using a wildcard (<code>*</code>),
+which will allow any externally loaded JavaScript resource to interact with the
+affected page. This can severely increase the risk of attacks such as Cross Site Scripting etc.</p>
+
+<p>Arachni detected that the CORS policy being set by the server was weak, and used
+a wildcard value. This is evident by the <code>Access-Control-Allow-Origin</code> header being set to <code>*</code>.</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row">
+
+                            
+
+                            
+                            <div class="col-md-12">
+                                <h4>
+                                    <a id="issues-trusted-severity-low-insecure_cors_policy-remedy_guidance"
+                                       href="#!/issues/trusted/severity/low/insecure_cors_policy/remedy_guidance"
+                                    >
+                                        Remediation guidance
+                                    </a>
+                                </h4>
+
+                                <div class="issue-remedy_guidance markdown">
+                                    
+<p>It is important that weak CORS policies are not used. Policies can be hardened by
+removing the wildcard and individually specifying the domains where the trusted
+JavaScript resources are located. If the list of hosts for externally hosted
+JavaScript resources is excessive, then a whole top level domain can be whitelisted
+by using a combination of the wildcard and the domain (example: <code>*.arachni-scanner.com</code>).</p>
+
+                                </div>
+                            </div>
+                            
+
+                            
+                        </div>
+                        
+                    </div>
+
+                    
+                    <div class="col-md-2">
+                        <h4>
+                            <a id="issues-trusted-severity-low-insecure_cors_policy-references"
+                               href="#!/issues/trusted/severity/low/insecure_cors_policy/references"
+                            >
+                                References
+                            </a>
+                        </h4>
+
+                        <hr/>
+
+                        <ul class="list-unstyled">
+                            
+
+                            
+                                <li>
+                                    <a href="https://www.owasp.org/index.php/CORS_OriginHeaderScrutiny"> OWASP</a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS"> Mozilla Developer Network</a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                
+                    <div id="issues-trusted-severity-low-insecure_cors_policy-4183567803">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803">
+                            In <code>server</code>
+
+                            
+
+                            
+                                using
+                                <code>GET</code>
+                            
+                        </a>
+
+                        at
+
+                        <a href="http://34.81.135.51:3000/">
+                            http://34.81.135.51:3000/
+                        </a>
+
+                        pointing to
+                        <a href="http://34.81.135.51:3000/">
+                            http://34.81.135.51:3000/
+                        </a>.
+                    </h4>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+
+
+
+
+
+
+
+<table class="table table-condensed table-fixed">
+    <thead>
+    <tr>
+        
+
+        
+
+        
+            <th>
+                Proof
+
+                <a href="#" rel="tooltip"
+                   title="This string was used to verify the existence of the issue.">
+                    <i class="fa fa-info"></i>
+                </a>
+            </th>
+        
+
+    </tr>
+    </thead>
+    <tr>
+
+        
+
+        
+
+        
+            <td class="wrap">
+                <pre class='code-container'>Access-Control-Allow-Origin: *</pre>
+            </td>
+        
+    </tr>
+</table>
+
+
+                        </div>
+                    </div>
+
+                    <div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/vector">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-insecure_cors_policy-4183567803-vector">
+                    Vector information
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-insecure_cors_policy-4183567803-vector" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+<table class="table">
+    <tr>
+        <th>Type</th>
+        <th>In</th>
+        <th>Action</th>
+
+        
+    </tr>
+    <tr>
+        <td><code>server</code></td>
+        <td>
+            <a href="http://34.81.135.51:3000/">
+                http://34.81.135.51:3000/
+            </a>
+        </td>
+        <td>
+            <a href="http://34.81.135.51:3000/">
+                http://34.81.135.51:3000/
+            </a>
+        </td>
+
+        
+    </tr>
+</table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/affected_page">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-insecure_cors_policy-4183567803-affected_page">
+                    Affected page:
+
+                    <code>http://34.81.135.51:3000/</code>
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-insecure_cors_policy-4183567803-affected_page" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-insecure_cors_policy-4183567803-affected_page-http_request"
+            href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/affected_page/http_request">
+                HTTP request
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP request used to retrieve the page.
+        </p>
+
+        <pre class="code-container">GET / HTTP/1.1
+Host: 34.81.135.51:3000
+Accept-Encoding: gzip, deflate
+User-Agent: Arachni/v1.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.8,he;q=0.6
+
+</pre>
+    </div>
+
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-insecure_cors_policy-4183567803-affected_page-http_response"
+            href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/affected_page/http_response">
+                HTTP response
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP response used as the page basis.
+
+            (Binary bodies will not be displayed.)
+        </p>
+
+        
+            <pre class="code-container">HTTP/1.1 200 OK
+X-Powered-By: Express
+<span class="issue-proof-highlight">Access-Control-Allow-Origin: *</span>
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Content-Type: text/html; charset=utf-8
+Accept-Ranges: bytes
+ETag: W/&quot;705-jMYbT9KhAqKrqVflvGAjDfv/cgs&quot;
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Wed, 24 Sep 2025 03:03:23 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;script src=&quot;https://www.paypal.com/sdk/js?client-id=sb&amp;;currency=DKK&quot;&gt;&lt;/script&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt;
+    &lt;meta
+      name=&quot;description&quot;
+      content=&quot;Web site created using create-react-app&quot;
+    /&gt;
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/logo192.png&quot; /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user&#39;s mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;
+    &lt;!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike &quot;/favicon.ico&quot; or &quot;favicon.ico&quot;, &quot;/favicon.ico&quot; will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+    &lt;title&gt;Shoes shop&lt;/title&gt;
+  &lt;script defer src=&quot;/static/js/bundle.js&quot;&gt;&lt;/script&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+    &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/referring_page">
+                    <i class="fa fa-link"></i>
+                </a>
+
+                <a data-toggle="collapse" href="#issues-trusted-severity-low-insecure_cors_policy-4183567803-referring_page">
+                    Referring page:
+
+                    <code>http://34.81.135.51:3000/</code>
+                </a>
+            </h4>
+        </div>
+        <div id="issues-trusted-severity-low-insecure_cors_policy-4183567803-referring_page" class="panel-collapse collapse">
+            <div class="panel-body">
+                
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-insecure_cors_policy-4183567803-referring_page-http_request"
+            href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/referring_page/http_request">
+                HTTP request
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP request used to retrieve the page.
+        </p>
+
+        <pre class="code-container">GET / HTTP/1.1
+Host: 34.81.135.51:3000
+Accept-Encoding: gzip, deflate
+User-Agent: Arachni/v1.4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.8,he;q=0.6
+
+</pre>
+    </div>
+
+    <div class="col-md-6">
+        <strong>
+            <a
+            id="issues-trusted-severity-low-insecure_cors_policy-4183567803-referring_page-http_response"
+            href="#!/issues/trusted/severity/low/insecure_cors_policy/4183567803/referring_page/http_response">
+                HTTP response
+            </a>
+        </strong>
+
+        <p class="text-muted">
+            Raw HTTP response used as the page basis.
+
+            (Binary bodies will not be displayed.)
+        </p>
+
+        
+            <pre class="code-container">HTTP/1.1 200 OK
+X-Powered-By: Express
+<span class="issue-proof-highlight">Access-Control-Allow-Origin: *</span>
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Headers: *
+Content-Type: text/html; charset=utf-8
+Accept-Ranges: bytes
+ETag: W/&quot;705-jMYbT9KhAqKrqVflvGAjDfv/cgs&quot;
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Wed, 24 Sep 2025 03:03:23 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;script src=&quot;https://www.paypal.com/sdk/js?client-id=sb&amp;;currency=DKK&quot;&gt;&lt;/script&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt;
+    &lt;meta
+      name=&quot;description&quot;
+      content=&quot;Web site created using create-react-app&quot;
+    /&gt;
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/logo192.png&quot; /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user&#39;s mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; /&gt;
+    &lt;!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike &quot;/favicon.ico&quot; or &quot;favicon.ico&quot;, &quot;/favicon.ico&quot; will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+    &lt;title&gt;Shoes shop&lt;/title&gt;
+  &lt;script defer src=&quot;/static/js/bundle.js&quot;&gt;&lt;/script&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+    &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+                
+            
+        </div>
+    
+</div>
+
+    </div>
+    
+
+    
+</div>
+
+        </div>
+        
+
+        
+        <div class="tab-pane" id="plugins">
+            <h2>Plugin results</h2>
+
+<div id="plugin-tabs">
+    <ul class="nav nav-tabs">
+        
+            <li class="active" >
+                <a href="#!/plugins/healthmap">
+                    Health map
+                </a>
+            </li>
+        
+    </ul>
+
+    <div class="tab-content">
+    
+        <div class="tab-pane active"
+             id="plugins-healthmap">
+
+            <div class="plugin-description markdown">
+                <p>Generates a simple list of safe/unsafe URLs.</p>
+
+            </div>
+
+            <div class="plugin-results">
+                            <style type="text/css">
+                a.without_issues {
+                    color: blue;
+                }
+                a.with_issues {
+                    color: red;
+                }
+            </style>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Total
+                        </dt>
+                        <dd>
+                            6
+                        </dd>
+
+                        <dt>
+                            Without issues
+                        </dt>
+                        <dd>
+                            4
+                        </dd>
+
+                        <dt>
+                            With issues
+                        </dt>
+                        <dd>
+                            2
+                        </dd>
+
+                        <dt>
+                            Issue percentage
+                        </dt>
+                        <dd>
+                            33
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="col-md-10">
+                    <ul class="list-unstyled">
+                    
+
+                        <li>
+                            <a class="text-danger"
+                                href="http://34.81.135.51:3000/">
+                                http://34.81.135.51:3000/
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-danger"
+                                href="http://34.81.135.51:3000/robots.txt">
+                                http://34.81.135.51:3000/robots.txt
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://34.81.135.51:3000/favicon.ico">
+                                http://34.81.135.51:3000/favicon.ico
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://34.81.135.51:3000/logo192.png">
+                                http://34.81.135.51:3000/logo192.png
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://34.81.135.51:3000/manifest.json">
+                                http://34.81.135.51:3000/manifest.json
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://34.81.135.51:3000/static/js/bundle.js">
+                                http://34.81.135.51:3000/static/js/bundle.js
+                            </a>
+                        </li>
+                    
+
+                    </ul>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    
+    </div>
+
+</div>
+
+        </div>
+        
+
+        <div class="tab-pane" id="sitemap">
+            <h2>
+    <a href="#!/sitemap">
+        Sitemap
+
+        <span class="badge">5</span>
+    </a>
+</h2>
+
+<div id="sitemap">
+
+    <table class="table table-condensed">
+        <tr>
+            <th>HTTP status code</th>
+            <th>URL</th>
+        </tr>
+
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://34.81.135.51:3000/">
+                        http://34.81.135.51:3000/
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://34.81.135.51:3000/favicon.ico">
+                        http://34.81.135.51:3000/favicon.ico
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://34.81.135.51:3000/logo192.png">
+                        http://34.81.135.51:3000/logo192.png
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://34.81.135.51:3000/manifest.json">
+                        http://34.81.135.51:3000/manifest.json
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://34.81.135.51:3000/static/js/bundle.js">
+                        http://34.81.135.51:3000/static/js/bundle.js
+                    </a>
+                </td>
+            </tr>
+        
+    </table>
+
+</div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
