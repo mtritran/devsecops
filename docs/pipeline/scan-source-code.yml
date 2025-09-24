@@ -1,0 +1,78 @@
+variables:
+  CODECLIMATE_REPORT: "${CI_PROJECT_NAME}_${CI_COMMIT_BRANCH}_${CI_COMMIT_TAG}_${CI_COMMIT_SHORT_SHA}_codeclimate"
+  SNYKSCAN_REPORT: "${CI_PROJECT_NAME}_${CI_COMMIT_BRANCH}_${CI_COMMIT_TAG}_${CI_COMMIT_SHORT_SHA}_snykscan"
+  TRIVYFS_REPORT: "${CI_PROJECT_NAME}_${CI_COMMIT_BRANCH}_${CI_COMMIT_TAG}_${CI_COMMIT_SHORT_SHA}_trivyfs_scan"
+
+stages:
+  - scan_source_code
+
+codeclimate:
+  stage: scan_source_code
+  script:
+    - >
+      docker run --rm
+      -e CODECLIMATE_CODE="$PWD"
+      -v "$PWD":/code
+      -v /var/run/docker.sock:/var/run/docker.sock
+      -v /tmp/cc:/tmp/cc
+      codeclimate/codeclimate analyze -f html > "${CODECLIMATE_REPORT}.html"
+  artifacts:
+    paths:
+      - "${CODECLIMATE_REPORT}.html"
+    expire_in: 2 days
+  allow_failure: false
+  tags:
+    - online-shop-runner-build-shell
+  only:
+    - tags
+
+snykscan:
+  stage: scan_source_code
+  script:
+    - echo "Running Snyk scan..."
+    - docker pull node:18-alpine
+    - |
+      docker run --rm \
+        -v "$PWD":/app \
+        -w /app \
+        -e SNYK_TOKEN="$SNYK_TOKEN" \
+        node:18-alpine \
+        sh -c '
+          apk add --no-cache git &&
+          npm install -g snyk snyk-to-html &&
+          snyk auth $SNYK_TOKEN &&
+          if [ -f package.json ]; then npm install; fi &&
+          snyk test --json > /tmp/snyk.json || true &&
+          snyk-to-html -i /tmp/snyk.json -o '${SNYKSCAN_REPORT}'.html
+        '
+    - ls -la ${SNYKSCAN_REPORT}.html
+  artifacts:
+    paths:
+      - "${SNYKSCAN_REPORT}.html"
+    expire_in: 2 days
+  allow_failure: false
+  tags:
+    - online-shop-runner-build-shell
+  only:
+    - tags
+
+trivyfs_scan:
+  stage: scan_source_code
+  script:
+    - >
+      docker run --rm
+      -v "$PWD":/project
+      aquasec/trivy fs /project
+      --severity HIGH,CRITICAL
+      --format template
+      --template "@contrib/html.tpl"
+      --output /project/$TRIVYFS_REPORT.html
+  artifacts:
+    paths:
+      - "${TRIVYFS_REPORT}.html"
+    expire_in: 2 days
+  allow_failure: false
+  tags:
+    - online-shop-runner-build-shell
+  only:
+    - tags

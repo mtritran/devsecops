@@ -26,6 +26,10 @@ An end‑to‑end delivery pipeline for a full‑stack ecommerce application.
   - [Setup Portus](docs/portus-setup.md) 
   - **Status:** (✅ Completed 23/09/2025 )     
 
+- **Day 3 (24/09/2025) — Building a devsecops pipeline**  
+  - [Scan Source Code](docs/source_code_security_scanning.md)  
+  - **Status:** (✅ Completed 24/09/2025 )  
+
 *Summary: .*
 
 ## 4) Architecture at a Glance
