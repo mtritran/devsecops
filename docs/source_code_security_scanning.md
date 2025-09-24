@@ -247,7 +247,7 @@ trivyfs_scan:
   only:
     - tags
 ```
-File pipeline here: (pipeline/scan-source-code.yml)
+File pipeline here: [pipeline/scan-source-code.yml](pipeline/scan-source-code.yml)
 
 ## 5. Pipeline Execution
 
@@ -288,13 +288,13 @@ File pipeline here: (pipeline/scan-source-code.yml)
    - Open HTML reports in web browser
    - Review security findings and recommendations
 
-   - Snyk report: (artifacts/online-shop-backend__v1_00442774_snykscan.html)
+   - Snyk report: [artifacts/online-shop-backend__v1_00442774_snykscan.html](artifacts/online-shop-backend__v1_00442774_snykscan.html)
   ![](screenshots/scss16.png)
   
-   - Codeclimate report: (artifacts/online-shop-backend__v1_00442774_codeclimate.html)
+   - Codeclimate report: [artifacts/online-shop-backend__v1_00442774_codeclimate.html](artifacts/online-shop-backend__v1_00442774_codeclimate.html)
   ![](screenshots/scss17.png)
 
-   - Trivyfs report: (artifacts/online-shop-backend__v1_00442774_trivyfs_scan.html) 
+   - Trivyfs report: [artifacts/online-shop-backend__v1_00442774_trivyfs_scan.html](artifacts/online-shop-backend__v1_00442774_trivyfs_scan.html) 
   ![](screenshots/scss18.png)
 
 ## 6. Security Scanning Tools Overview
